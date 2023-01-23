@@ -12,9 +12,17 @@
 </p>
 
 <p>
-  <strong>日時</strong>
+  <strong>開始時刻</strong>
   <%= @blog.start_time.strftime("%m/%d %H:%M") %>
 </p>
+
+<p>
+  <strong>終了時刻</strong>
+  <%= @blog.end_time.strftime("%m/%d %H:%M") %>
+</p>
+
+<p><%= @blog.end_time.strftime("%m/%d %H:%M") - @blog.start_time.strftime("%m/%d %H:%M") %>
+   学習しました!</p>
 
 <%= link_to '編集', edit_blog_path(@blog) %>
 <%= link_to '消去',blog_path(@blog.id), method: :delete, data: { confirm: '本当に?' } %>
@@ -22,3 +30,4 @@
 </div>
 
 </div>
+

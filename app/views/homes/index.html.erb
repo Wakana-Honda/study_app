@@ -1,0 +1,36 @@
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+      datasets: [{
+        label: '学習時間',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          min: 0,
+        　max: 100,
+          stepSize: 10
+      }
+     }
+    }
+  });
+</script>
+
+<% @blogs.each do |blog| %>
+    <div>
+      <%= link_to blog.title, blog %>
+    </div>
+<% end %>

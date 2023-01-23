@@ -2,6 +2,9 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
     @blog = Blog.new
+    # @time = t
+    # t = end_time - start_time
+    # puts {t.min}
   end
   
   def new
@@ -39,7 +42,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_parameter
-    params.require(:blog).permit(:title, :content, :start_time)
+    params.require(:blog).permit(:title, :content, :start_time, :end_time)
   end
 
 end

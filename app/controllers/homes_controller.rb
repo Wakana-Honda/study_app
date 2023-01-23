@@ -1,5 +1,7 @@
 class HomesController < ApplicationController
+  
   def index
+    @bolgs = Blog.all
   end
   
   def show
@@ -8,5 +10,10 @@ class HomesController < ApplicationController
   def edit
   end
   
+  private
+   def blog_parameter
+     params.require(:blog).permit(:title, :content, :start_time, :end_time)
+   end
+ 
   
 end

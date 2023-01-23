@@ -2,6 +2,9 @@
 
 <div class="toppage">
 <div class="row">
+<div class="col-md-3">
+ <%= link_to "グラフ", homes_path %>
+</div>
 <div class="col-md-4">
 
 <%= form_with(model: @blog, local: true) do |form| %>
@@ -11,15 +14,16 @@
     <%= form.text_field :title %>
   </div>
 
-
   <div class="content">
     <div class="form-tag">内容</div>
     <%= form.text_field :content %>
   </div>
 
     <div class="time">
-    <div class="form-tag">時間</div>
+    <div class="form-tag">開始時間</div>
     <%= form.datetime_select :start_time %>
+    <div class="form-tag">終了時間</div>
+    <%= form.datetime_select :end_time %>
   </div>
 
  <div class="submit">
@@ -45,3 +49,34 @@
 </div>
 </div>
 </div>
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+      datasets: [{
+        label: '学習時間',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          min: 0,
+        　max: 100,
+          stepSize: 10
+      }
+     }
+    }
+  });
+</script>
