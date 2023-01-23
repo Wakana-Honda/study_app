@@ -1,3 +1,3 @@
 class Home < ApplicationRecord
-  belongs_to:model
+  # belongs_to:blog
 end
